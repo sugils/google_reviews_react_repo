@@ -1,38 +1,259 @@
+/* ============================================
+   MINIMAL GLOBAL RESET - Only Essential Styles
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+/* ============================================
+   LAYOUT FIXES - Minimal & Non-Intrusive
+   ============================================ */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.topbar {
+  width: 100%;
+  flex-shrink: 0;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+/* ============================================
+   COMPONENT-SPECIFIC NAMESPACES
+   Prevent global conflicts by using prefixes
+   ============================================ */
+
+/* Landing Page Styles - Prefix with .landing- */
+.landing-page {
+  font-family: 'Proxima Nova', 'apple-system', 'BlinkMacSystemFont', sans-serif;
+  background-color: #f8fafc;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.landing-page h1,
+.landing-page h2,
+.landing-page h3,
+.landing-page h4,
+.landing-page h5,
+.landing-page h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  color: #2d3748;
+}
+
+.landing-page input,
+.landing-page select,
+.landing-page textarea {
+  font-family: inherit;
+  font-size: 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #f7fafc;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.landing-page button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 6px;
+}
+
+/* Auth Pages - Prefix with .auth- */
+.auth-page {
+  font-family: 'Proxima Nova', sans-serif;
+  background-color: #f8fafc;
+  color: #2d3748;
+}
+
+.auth-page input {
+  font-size: 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #f7fafc;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.auth-page input:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Dashboard Pages - Keep isolated */
+.dashboard-container {
+  font-family: 'Inter', sans-serif;
+  background: #fafbfc;
+  color: #1a202c;
+}
+
+/* Override any inherited styles for dashboard */
+.dashboard-container *,
+.chart-card *,
+.insight-card *,
+.filter-section *,
+.candidates-table *,
+.actions-card *,
+.summary-card * {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   UTILITY CLASSES - PREFIXED
+   ============================================ */
+
+/* Landing page utilities */
+.landing-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.landing-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Auth page utilities */
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  max-width: 400px;
+  width: 100%;
+}
+
+.auth-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* ============================================
+   ANIMATIONS - SCOPED
+   ============================================ */
+@keyframes global-spin {
+  to { transform: rotate(360deg); }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes global-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.global-loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  border-top-color: #667eea;
+  animation: global-spin 1s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE - MINIMAL GLOBAL
+   ============================================ */
+@media (max-width: 768px) {
+  .landing-container,
+  .auth-container {
+    padding: 0 16px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* ============================================
+   FOCUS STYLES - ACCESSIBILITY
+   ============================================ */
+.landing-page button:focus-visible,
+.landing-page input:focus-visible,
+.auth-page button:focus-visible,
+.auth-page input:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Dashboard focus styles handled in Dashboard.css */
+.dashboard-container button:focus-visible,
+.dashboard-container input:focus-visible,
+.dashboard-container select:focus-visible {
+  /* Let Dashboard.css handle these */
+  outline: none;
 }

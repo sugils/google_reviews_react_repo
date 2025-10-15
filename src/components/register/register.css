@@ -1,0 +1,492 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
+/* Register Page Container */
+.register-page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0a0a1a;
+}
+
+/* Animated Background */
+.register-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: radial-gradient(ellipse at top, #1a1a3e 0%, #0a0a1a 50%, #050510 100%);
+}
+
+.register-mesh-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(245, 87, 108, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.15) 0%, transparent 50%);
+  animation: registerMeshMove 20s ease-in-out infinite;
+}
+
+.register-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: registerFloat 20s ease-in-out infinite;
+}
+
+.register-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.6) 0%, transparent 70%);
+  top: -300px;
+  left: -300px;
+}
+
+.register-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 87, 108, 0.6) 0%, transparent 70%);
+  bottom: -250px;
+  right: -250px;
+  animation-delay: -7s;
+}
+
+.register-orb-3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.6) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -14s;
+}
+
+/* Register Card Wrapper */
+.register-card-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  animation: registerFadeInUp 0.6s ease-out;
+}
+
+/* Register Card */
+.register-card {
+  background: rgba(20, 20, 40, 0.95);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 126, 234, 0.5) rgba(255, 255, 255, 0.1);
+}
+
+.register-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.register-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.7);
+}
+
+/* Register Header */
+.register-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.register-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  animation: registerPulse 2s ease-in-out infinite;
+}
+
+.register-icon {
+  color: white;
+}
+
+.register-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #a78bfa 50%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  background-size: 200% auto;
+  animation: registerGradientShift 3s ease-in-out infinite;
+}
+
+.register-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Register Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-form-section {
+  margin-bottom: 1.5rem;
+}
+
+.register-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-section-title svg {
+  color: #4facfe;
+}
+
+.register-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.register-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.register-form-group.register-full-width {
+  grid-column: 1 / -1;
+}
+
+.register-form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.register-form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(10, 10, 30, 0.8);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: 'Proxima Nova', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.register-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.register-form-input:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.register-form-select {
+  cursor: pointer;
+  appearance: none;
+  background-color: rgba(10, 10, 30, 0.8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.register-form-select option {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
+.register-form-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.register-password-wrapper {
+  position: relative;
+}
+
+.register-password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.register-password-toggle:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Submit Button */
+.register-submit-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  margin-top: 1rem;
+}
+
+.register-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+.register-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register-btn-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.register-loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: registerSpin 0.8s linear infinite;
+}
+
+/* Register Footer */
+.register-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.register-footer-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #a78bfa;
+}
+
+/* Loading States */
+.register-loading-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.register-loading-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+}
+
+.register-loading-spinner-large {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: registerSpin 0.8s linear infinite;
+}
+
+/* Animations */
+@keyframes registerFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
+  66% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+@keyframes registerMeshMove {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@keyframes registerFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes registerPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes registerGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes registerSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-page-container {
+    padding: 1rem;
+  }
+
+  .register-card {
+    padding: 2rem;
+  }
+
+  .register-form-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .register-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .register-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .register-section-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .register-title {
+    font-size: 1.5rem;
+  }
+
+  .register-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .register-form-input {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .register-submit-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
